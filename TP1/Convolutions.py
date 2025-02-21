@@ -4,7 +4,7 @@ import cv2
 from matplotlib import pyplot as plt
 
 #Lecture image en niveau de gris et conversion en float64
-img=np.float64(cv2.imread('../Image_Pairs/FlowerGarden2.png',0))
+img=np.float64(cv2.imread('./Image_Pairs/FlowerGarden2.png',0))
 (h,w) = img.shape
 print("Dimension de l'image :",h,"lignes x",w,"colonnes")
 
