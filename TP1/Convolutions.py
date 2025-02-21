@@ -21,7 +21,7 @@ print("Méthode directe :",time,"s")
 
 cv2.imshow('Avec boucle python',img2.astype(np.uint8))
 #Convention OpenCV : une image de type entier est interprétée dans {0,...,255}
-cv2.waitKey(0)
+# cv2.waitKey(0)
 
 plt.subplot(121)
 plt.imshow(img2,cmap = 'gray')
@@ -37,7 +37,7 @@ print("Méthode filter2D :",time,"s")
 
 cv2.imshow('Avec filter2D',img3/255.0)
 #Convention OpenCV : une image de type flottant est interprétée dans [0,1]
-cv2.waitKey(0)
+# cv2.waitKey(0)
 
 plt.subplot(122)
 plt.imshow(img3,cmap = 'gray',vmin = 0.0,vmax = 255.0)
