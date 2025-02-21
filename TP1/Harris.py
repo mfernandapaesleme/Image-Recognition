@@ -4,7 +4,7 @@ import cv2
 from matplotlib import pyplot as plt
 
 #Lecture image en niveau de gris et conversion en float64
-img=np.float64(cv2.imread('../Image_Pairs/Graffiti0.png',cv2.IMREAD_GRAYSCALE))
+img=np.float64(cv2.imread('./images/Graffiti0.png',cv2.IMREAD_GRAYSCALE))
 (h,w) = img.shape
 print("Dimension de l'image :",h,"lignes x",w,"colonnes")
 print("Type de l'image :",img.dtype)
@@ -44,7 +44,7 @@ se_croix = np.uint8([[1, 0, 0, 0, 1],
 [0, 1, 0, 1, 0],[1, 0, 0, 0, 1]])
 Theta_ml_dil = cv2.dilate(Theta_maxloc,se_croix)
 #Relecture image pour affichage couleur
-Img_pts=cv2.imread('../Image_Pairs/Graffiti0.png',cv2.IMREAD_COLOR)
+Img_pts=cv2.imread('./images/Graffiti0.png',cv2.IMREAD_COLOR)
 (h,w,c) = Img_pts.shape
 print("Dimension de l'image :",h,"lignes x",w,"colonnes x",c,"canaux")
 print("Type de l'image :",Img_pts.dtype)
