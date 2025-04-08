@@ -58,13 +58,16 @@ print("Détection points et calcul descripteurs :",time,"s")
 # Calcul de l'appariement
 t1 = cv2.getTickCount()
 # Paramètres de FLANN 
-FLANN_INDEX_KDTREE = 0
-index_params = dict(algorithm = FLANN_INDEX_KDTREE, trees = 5)
-search_params = dict(checks=50) 
+if detector == 1:  # ORB
+    bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=False)
+    matches = bf.knnMatch(desc1, desc2, k=2)
+else:  # KAZE
+    FLANN_INDEX_KDTREE = 1
+    index_params = dict(algorithm=FLANN_INDEX_KDTREE, trees=5)
+    search_params = dict(checks=50)
+    flann = cv2.FlannBasedMatcher(index_params, search_params)
+    matches = flann.knnMatch(desc1, desc2, k=2)
 
-flann = cv2.FlannBasedMatcher(index_params,search_params)
-
-matches = flann.knnMatch(desc1,desc2,k=2)
 # Application du ratio test
 good = []
 for m,n in matches:
